@@ -6,6 +6,8 @@ import qrcode
 import robomaster.conn
 import rclpy.utilities
 import rclpy.logging
+import MyQR.myqr
+import PIL.Image
 
 
 def main(args: Any = None) -> None:
@@ -19,8 +21,12 @@ def main(args: Any = None) -> None:
     if args.app_id:
         helper._appid = args.app_id[:8]
     info = helper.build_qrcode_string(ssid=args.ssid, password=args.password)
-    img = qrcode.make(info)
-    img.show()
+    myqr.run(word=info)
+    time.sleep(1)
+    img = Image.open(QRCODE_NAME)
+    img = img.save(QRCODE_NAME)
+    # img = qrcode.make(info)
+    # img.show()
     logger = rclpy.logging.get_logger("connect")
     if helper.wait_for_connection():
         logger.info("Connected")
