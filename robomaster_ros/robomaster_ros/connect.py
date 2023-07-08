@@ -6,8 +6,8 @@ import qrcode
 import robomaster.conn
 import rclpy.utilities
 import rclpy.logging
-import MyQR.myqr
-import PIL.Image
+from MyQR import myqr
+from PIL import Image
 
 
 def main(args: Any = None) -> None:
