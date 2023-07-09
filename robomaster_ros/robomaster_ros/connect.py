@@ -10,7 +10,7 @@ import rclpy.logging
 from MyQR import myqr
 from PIL import Image
 
-QRCODE_NAME = "battle_login.png"
+QRCODE_NAME = "qrcode.png"
 
 def main(args: Any = None) -> None:
     args = rclpy.utilities.remove_ros_args(args=args)
